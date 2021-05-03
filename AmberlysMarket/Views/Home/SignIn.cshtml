@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Sign In";
+}
+
+<head>
+    <link href="~/css/SignIn/SignInLarge.css" rel="stylesheet" />
+</head>
+
+<!--Main Wrapper-->
+<div class="divMainWrapper">
+    <!--Left Half Wrapper-->
+    <div class="divLeftHalfWrapper">
+        <h3>Amberlys Market</h3>
+        <h4>Fill your home with things you love.</h4>
+    </div>
+    <!--Right Half Wrapper-->
+    <div class="divRightHalfWrapper">
+        <div class="divLoginPanelWrapper">
+            <h5>Log In</h5>
+            <input class="form-control inputUsername" placeholder="Username" />
+            <input class="form-control inputPassword" placeholder="Password" type="password" />
+            <button class="btn btn-primary btnLogIn">Log In</button>
+            <p class="pForgotPassword">Forgot Password?</p>
+            <hr />
+            <button class="btn btn-success btnShowCreateAccountForm">Create Account</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    //Go to create account page
+    $(".btnShowCreateAccountForm").on('click', function () {
+        window.location.href = "/Home/CreateAnAccount";
+    });
+
+    //Log user in
+    $(".btnLogIn").on('click', function () {
+        var username = $(".inputUsername").val(); 
+        var password = $(".inputPassword").val(); 
+        $.post("/Home/SignIntoAccount", { Username: username, Password: password }, function (data) {
+            if (data === true) {
+                window.location.href = "/Home/Index";
+            }
+        });
+    });
+  
+</script>

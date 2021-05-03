@@ -1,0 +1,101 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
+<!--Main Variables-->
+@{string Username = @HttpContextAccessor.HttpContext.Session.GetString("Username"); }
+@{string Password = @HttpContextAccessor.HttpContext.Session.GetString("Password"); }
+@{string FirstName = @HttpContextAccessor.HttpContext.Session.GetString("FirstName"); }
+@{string LastName = @HttpContextAccessor.HttpContext.Session.GetString("LastName"); }
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Amberly's Market</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrapFlatly.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Amberly's Market</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item navHome">
+                        <a class="nav-link navBarHome" href="/Home">
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navBarShop" href="/Home/Shop">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navBarMyAccount" href="/Home/MyAccount">My Account</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/Home/GetQuote">Get a quote</a>
+                            <a class="dropdown-item" href="#">Leave Feedback</a>
+                            <a class="dropdown-item" href="#">Billing/Account Support</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/Home/Privacy">Privacy Policy</a>
+                        </div>
+                    </li>
+                </ul>
+                <img src="~/Images/blankProfilePic.png" class="imgProfilPic" />
+
+                @if (Username == null) //If user is not signed in display sign in button
+                {
+                    <button class="btn btn-primary layoutBtnSignIn">Sign In</button>
+                }
+                else //If user is signed in display their name
+                {
+                    <button class="btn btn-primary">@FirstName @LastName</button>
+                }
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container2">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Amberly's Market - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+
+    <!--Highlight current page in nav bar-->
+    <script>
+        var pageName = window.location.href;
+        if (/Home./.test(pageName) === true) {
+            pageName = pageName.replace(/.*H+o+m+e+\//g, '');
+            $(".navBar" + pageName).css("color", "#18bc9c")
+        }
+        else {
+            $(".navBar" + "Home").css("color", "#18bc9c")
+        }
+
+        //Sign in button clicked
+        $(".layoutBtnSignIn").on('click', function () {
+            window.location.href = "/Home/SignIn";
+        });
+    </script>
+</body>
+</html>

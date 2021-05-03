@@ -1,0 +1,38 @@
+﻿.divMainWrapper {
+    position: relative;
+    width: 1350px;
+    height: 740px;
+    left:50%; 
+    transform:translate(-50%); 
+    margin-top:50px; 
+    background-color: white;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    padding:30px;
+}
+
+.divMainWrapper input, .divMainWrapper select{
+    width:45% !important;
+    display:inline-block!important;
+    margin-top:50px; 
+    margin-left:30px; 
+    height:50px; 
+    letter-spacing:1px!important;
+}
+
+.divMainWrapper textarea
+{
+    height:210px; 
+    width:90%!important; 
+    margin-top:50px; 
+    margin-left:30px; 
+    display:inline-block!important;
+
+}
+
+.divMainWrapper button
+{
+    position:absolute; top:89%; height:50px; width:250px; left:83%; 
+    transform:translate(-50%); 
+    box-shadow: 0 2px 4px rgb(0 0 0 / 30%), 0 8px 16px rgb(0 0 0 / 30%);
+
+}

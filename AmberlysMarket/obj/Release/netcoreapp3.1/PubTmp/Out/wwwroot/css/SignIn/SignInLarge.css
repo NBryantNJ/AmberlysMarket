@@ -1,0 +1,67 @@
+﻿body {
+    background-color: #f0f2f5
+}
+
+
+/*Account Header and Login*/
+.divMainWrapper
+{
+    position:relative; width:1350px; left:50%; top:100px; height:600px;
+    transform:translate(-50%);
+    margin-bottom:300px; 
+
+}
+
+.divLeftHalfWrapper
+{
+    position:absolute; left:0px; top:0px; width:30%; 
+}
+
+.divRightHalfWrapper {
+    position: absolute;
+    left: 50%;
+    width: 35%;
+    height: 400px;
+    display: inline-block;
+    background-color:white;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    padding:25px;
+}
+
+.divLoginPanelWrapper input
+{
+    height:50px;
+    margin-top:20px;
+}
+
+.divLoginPanelWrapper .btnLogIn {
+    position:relative; width:100%; left:50%; height:50px;
+    transform:translate(-50%);
+    margin-top:20px;
+    font-size:16px;
+    letter-spacing:2px!important;
+}
+
+.divLoginPanelWrapper .pForgotPassword
+{
+    color:blue; 
+    text-decoration:underline; 
+    margin-top:8px;
+}
+
+.divLoginPanelWrapper hr {
+    margin-top: 10px;
+}
+
+.divLoginPanelWrapper .btnShowCreateAccountForm {
+    position: relative;
+    width: 100%;
+    left: 50%;
+    height: 50px;
+    transform: translate(-50%);
+    margin-top: 10px;
+    font-size: 16px;
+    letter-spacing: 2px !important;
+}
+
+

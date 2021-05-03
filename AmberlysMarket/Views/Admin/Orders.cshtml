@@ -1,0 +1,295 @@
+﻿@{ ViewBag.Title = "Orders";}
+
+@model List<AmberlysMarket.Models.Admin.OrdersModel>;
+
+<head>
+    <!--CSS-->
+    <link href="~/css/Admin/Orders/OrdersLarge.css" rel="stylesheet" />
+</head>
+
+
+    @if (Model[0].advancedDetailView != true && Model[0].OrderNumber != null) //Basic Detail View Section
+    {
+        <div class="divMainWrapperForPosition">
+            <h5 class="h5HeaderText">Amberly's Orders</h5>
+            <!--Filter 1 (select)-->
+            <select class="form-control selectOrderFilter1">
+                <option selected hidden>Sort Results</option>
+                <option>Most Recent</option>
+                <option>Oldest</option>
+                <option>Name A-Z</option>
+            </select>
+            <!--Filter 2 (Input)-->
+            <input placeholder="Order Number #" class="form-control inputOrderNumberFilter" />
+            <!--Search Button-->
+            <button class="btn btn-primary btnOrderFilterSearch">Search</button>
+
+
+            <table class="ordersTableMain table table-hover">
+                <tr class="table-default">
+                    <th>Purchase Date</th>
+                    <th>Order Number</th>
+                    <th>Customer Name</th>
+                    <th>Total Cost</th>
+                    <th>Order Status</th>
+                </tr>
+                <!--Print out values in table-->
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr class="trRowOrderClickable">
+                        <td>@Model[i].PurchaseDate</td>
+                        <td>@Model[i].OrderNumber</td>
+                        <td>@Model[i].customerInfoList.CustomerFirstName @Model[i].customerInfoList.CustomerLastName</td>
+                        <td>$@Model[i].TotalCost</td>
+                        <td>@Model[i].OrderStatus</td>
+                        <td>@Html.ActionLink("View", "Orders", new { OrderNumber = Model[i].OrderNumber }, null)</td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+
+        <script>
+            //Filter Options Select Tab
+            $(".selectOrderFilter1").change(function () {
+                window.location.href = "/Admin/Orders?SortBy=" + $('.selectOrderFilter1').find(":selected").text();
+            });
+
+            //Filter Options Order Number Input
+            $(".btnOrderFilterSearch").on('click', function () {
+                window.location.href = "/Admin/Orders?SortBy=" + $('.inputOrderNumberFilter').val();
+            });
+
+
+        </script>
+
+}
+else if (Model[0].advancedDetailView != true && Model[0].OrderNumber == null)
+{
+    <div class="divMainWrapperForPosition">
+        <h5 class="h5HeaderText">Amberly's Orders</h5>
+        <!--Filter 1 (select)-->
+        <select class="form-control selectOrderFilter1">
+            <option selected hidden>Sort Results</option>
+            <option>Most Recent</option>
+            <option>Oldest</option>
+            <option>Name A-Z</option>
+        </select>
+        <!--Filter 2 (Input)-->
+        <input placeholder="Order Number #" class="form-control inputOrderNumberFilter" />
+        <!--Search Button-->
+        <button class="btn btn-primary btnOrderFilterSearch">Search</button>
+
+
+        <table class="ordersTableMain table table-hover">
+            <tr class="table-default">
+                <th>Purchase Date</th>
+                <th>Order Number</th>
+                <th>Customer Name</th>
+                <th>Total Cost</th>
+                <th>Order Status</th>
+            </tr>
+            <!--Print out values in table-->
+            <tr class="trRowOrderClickable">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        //Filter Options Select Tab
+        $(".selectOrderFilter1").change(function () {
+            window.location.href = "/Admin/Orders?SortBy=" + $('.selectOrderFilter1').find(":selected").text();
+        });
+
+        //Filter Options Order Number Input
+        $(".btnOrderFilterSearch").on('click', function () {
+            window.location.href = "/Admin/Orders?SortBy=" + $('.inputOrderNumberFilter').val();
+        });
+
+
+    </script>
+}
+else if(Model[0].advancedDetailView == true) //advanced view section
+{
+    //C# Variables
+    string customerEmail = Model[0].customerInfoList.CustomerEmail;
+    string firstName = Model[0].customerInfoList.CustomerFirstName;
+    string lastName = Model[0].customerInfoList.CustomerLastName;
+    string orderNumber = Model[0].OrderNumber;
+<!--Advanced Details Main Wrapper-->
+<div class="divAdvancedDetailsWrapper">
+    <!--Shipping-->
+    <div class="divAdvancedShippingDetailsHeader">
+        <h4>Order Status: @Model[0].OrderStatus</h4>
+        @if (Model[0].OrderStatus == "Order Placed")
+        {
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <button class="btn btn-primary">Order Placed</button>
+            <button class="btn btn-dark" onclick="CreateShippingInfo()">Order Shipped</button>
+            <button class="btn btn-dark">Order Complete</button>
+        }
+        @if (Model[0].OrderStatus == "Order Shipped")
+        {
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <button class="btn btn-primary">Order Placed</button>
+            <button class="btn btn-primary">Order Shipped</button>
+            <button class="btn btn-dark" onclick="bringUpOrderCompletePopUp()">Order Complete</button>
+        }
+        @if (Model[0].OrderStatus == "Order Complete")
+        {
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <button class="btn btn-primary">Order Placed</button>
+            <button class="btn btn-primary">Order Shipped</button>
+            <button class="btn btn-primary">Order Complete</button>
+        }
+        <p class="pCustomerDetailsPrimary">Shipping Method:</p>
+        <p class="pCustomerDetails">@Model[0].ShippingMethod.</p>
+        <span></span>
+        <p class="pCustomerDetailsPrimary">Tracking Number:</p>
+        <a href="https://www.google.com/search?q=9200190237964170478636&rlz=1C1CHBF_enUS926US926&oq=9200190237964170478636&aqs=chrome..69i57.140j0j4&sourceid=chrome&ie=UTF-8" target="_blank"><p class="pCustomerDetails">@Model[0].TrackingNumber</p></a>
+    </div>
+
+    <!--Customer Details-->
+    <h4>Customer Details</h4>
+    <hr />
+    <div class="divCustomerDetails">
+        <p class="pCustomerDetailsPrimary">Customer Name:</p>
+        <p class="pCustomerDetails">@Model[0].customerInfoList.CustomerFirstName</p>
+        <p class="pCustomerDetails">@Model[0].customerInfoList.CustomerLastName</p>
+        <span></span>
+        <p class="pCustomerDetailsPrimary">Phone Number:</p>
+        <p class="pCustomerDetails">@Model[0].customerInfoList.CustomerPhoneNumber</p>
+        <span></span>
+        <p class="pCustomerDetailsPrimary">Customer Email:</p>
+        <p class="pCustomerDetails">@Model[0].customerInfoList.CustomerEmail</p>
+        <span></span>
+        <p class="pCustomerDetailsPrimary">Address:</p>
+        <p class="pCustomerDetails">@Model[0].customerInfoList.CustomerStreetAddress</p>
+        <p class="pCustomerDetails">@Model[0].customerInfoList.CustomerState</p>
+        <p class="pCustomerDetails">@Model[0].customerInfoList.CustomerZipCode</p>
+        <!--<button class="btn btn-primary btnSendEmail" onclick="sendEmailToClient('@customerEmail','0','@firstName','@lastName')">Send Email</button>
+         -->
+    </div>
+
+    <!--Order Details-->
+    <h4>Order Details</h4>
+    <hr />
+    <p class="pCustomerDetailsPrimary">Order Date:</p>
+    <p class="pCustomerDetails">@Model[0].PurchaseDate</p>
+    <span></span>
+    <div class="divOrderAndShippingDetails">
+        <table class="table table-hover">
+            <tr>
+                <th>Item Name</th>
+                <th>Individual Price</th>
+                <th>Quantity</th>
+                <th>Total Item Price</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ListOfItems.ItemName</td>
+                    <td>$@item.ListOfItems.ItemPrice</td>
+                    <td>@item.ListOfItems.Quantity</td>
+                    <td>$@item.ListOfItems.TotalCostOfItemSet</td>
+                </tr>
+
+            }
+            <tr>
+                <th>Shipping Fee: $@Model[0].ShippingCost</th>
+                <th></th>
+                <th></th>
+                <th>Total: $@Model[0].TotalCost</th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="divBackButtonWrapper">
+    <a href="/Admin/Orders" class="btn btn-danger backButton">Back</a>
+</div>
+
+
+
+<!--Dimmer-->
+<div class="divDimmer">
+
+</div>
+
+<!--Order Status Change Prompt-->
+<div class="divOrderShippedPopUp">
+    <h4>Shipping Information</h4>
+    <input class="form-control inputCarrier" placeholder="Carrier" />
+    <input class="form-control inputShippingNumber" placeholder="Shipping Number" />
+    <button class="btn btn-danger">Cancel</button>
+    <button class="btn btn-primary btnShippingInfoConfirm" onclick="confirmShippingInfo()">Confirm</button>
+    <img src="~/Images/loading.gif" />
+</div>
+
+<!--Order Complete Change Prompt-->
+<div class="divOrderCompletePopUp">
+    <h4>Order Complete</h4>
+    <p>Please confirm below if the order has been paid for, shipped and recieved by the customer.</p>
+    <button class="btn btn-danger">Cancel</button>
+    <button class="btn btn-primary btnShippingInfoConfirm" onclick="orderCompleteButtonClicked(@orderNumber)">Confirm</button>
+    <img src="~/Images/loading.gif" />
+</div>
+
+
+<script>
+    //Sending Emails Base Function
+    function sendEmailToClient(ordernumber, messageType, carrier, trackingNumber) {
+
+        $.post("/admin/sendEmailToClient/", { OrderNumber: ordernumber, MessageType: messageType, Carrier: carrier, TrackingNumber:trackingNumber}, function success(data) {
+            alert(data);
+        });
+    }
+
+
+    //Create Shipping Info
+    function CreateShippingInfo() {
+        $(".divOrderShippedPopUp").css("visibility", "visible");
+        $(".divDimmer").css("visibility", "visible");
+
+    }
+
+    //Confirm Shipping Info
+    function confirmShippingInfo() {
+        $(".divOrderShippedPopUp img").css("visibility", "visible");
+        $(".divOrderShippedPopUp .btnShippingInfoConfirm").text("");
+        sendEmailToClient('@orderNumber', '0', $(".inputCarrier").val(), $(".inputShippingNumber").val());
+        setTimeout(function () {
+            window.location.reload();
+
+        }, 1000);
+    }
+
+
+    //Order Complete
+    function orderCompleteButtonClicked(orderNumber) {
+        $(".divOrderCompletePopUp img").css("visibility", "visible");
+        $(".divOrderCompletePopUp .btnShippingInfoConfirm").text("");
+        $.post("/admin/changeOrderStatusToComplete", {OrderNumber:orderNumber}, function success(data) {
+            window.location.reload();
+        });
+
+        }
+
+     //Show Is Order Complete Popup
+    function bringUpOrderCompletePopUp() {
+        $(".divOrderCompletePopUp").css("visibility", "visible");
+        $(".divDimmer").css("visibility", "visible");
+        }
+</script>
+}

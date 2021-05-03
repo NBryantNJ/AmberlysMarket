@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Sign Up";
+}
+
+<head>
+    <link href="~/css/CreateAnAccount/CreateAnAccountLarge.css" rel="stylesheet" />
+</head>
+
+<!--Main Wrapper-->
+<div class="divMainWrapper">
+    <!--Left Half Wrapper-->
+    <div class="divLeftHalfWrapper">
+        <h3>Amberlys Market</h3>
+        <h4>Fill your home with things you love.</h4>
+    </div>
+    <!--Right Half Wrapper-->
+    <div class="divRightHalfWrapper">
+        <!--Create Account-->
+        <div class="divCreateAccountWrapper">
+            <h4>Create an Account</h4>
+            <input class="form-control inputFirstName" placeholder="First Name" />
+            <input class="form-control inputLastName" placeholder="Last Name" />
+            <input class="form-control inputEmail" placeholder="Email" />
+            <input class="form-control inputPhoneNumber" placeholder="Phone Number" />
+            <input class="form-control inputUsername" placeholder="Username" />
+            <input class="form-control inputPassword" placeholder="Password" type="password" />
+            <button class="btn btn-primary btnShowCreateAccountForm">Sign Up</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    //Bring up Create Account Form
+    $(".btnShowCreateAccountForm").on('click', function () {
+        var firstName = $(".inputFirstName").val();
+        var lastName = $(".inputLastName").val();
+        var email = $(".inputEmail").val();
+        var phoneNumber = $(".inputPhoneNumber").val();
+        var username = $(".inputUsername").val();
+        var password = $(".inputPassword").val();
+        $.post("/Home/CreateNewCustomer", { FirstName: firstName, LastName: lastName, Email: email, PhoneNumber: phoneNumber, Username: username, Password: password }, function (data) {
+            if (data === "true") {
+                window.location.reload();
+            }
+            else
+            {
+                alert(data); 
+            }
+        });
+    });
+</script>

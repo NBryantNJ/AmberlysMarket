@@ -1,0 +1,60 @@
+﻿body {
+    background-color: #f0f2f5
+}
+
+
+/*Account Header and Login*/
+.divMainWrapper {
+    position: relative;
+    width: 1350px;
+    left: 50%;
+    top: 100px;
+    height: 600px;
+    transform: translate(-50%);
+    margin-bottom: 300px;
+}
+
+.divLeftHalfWrapper {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 30%;
+}
+
+.divRightHalfWrapper {
+    position: absolute;
+    left: 50%;
+    width: 35%;
+    height: 400px;
+    display: inline-block;
+    background-color: white;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    padding: 25px;
+}
+
+
+
+/*Account Creation*/
+.divCreateAccountWrapper {
+    position: absolute;
+    top: 0px;
+    width: 700px;
+    height: 700px;
+    left: 0px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    padding: 35px;
+}
+
+.divCreateAccountWrapper input {
+    height: 50px;
+    margin-top: 35px;
+}
+
+.divCreateAccountWrapper .btn-primary {
+    height: 50px;
+    width: 100%;
+    margin-top: 45px;
+    font-size: 16px;
+    letter-spacing: 2px;
+}

@@ -1,0 +1,6 @@
+﻿.divMainWrapper
+{
+    position:relative; width:1300px; top:100px; left:50%; 
+    transform:translate(-50%);
+    margin-bottom:200px; 
+}

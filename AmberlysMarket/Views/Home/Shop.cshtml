@@ -1,0 +1,162 @@
+﻿
+<head>
+    <link href="~/css/Shop/ShopLarge.css" rel="stylesheet" />
+</head>
+
+<!--Header Video-->
+<video class="headerMarketVideoLogo" autobuffer="false" muted="muted" >
+    <source src="~/Images/AmberlysShopVideo.mp4" type="video/mp4" />
+</video>
+
+<!--Shop welcome-->
+<div class="div1">
+    <h3>Online Shop</h3>
+</div>
+
+
+<div class="sorterDiv">
+    <div class="sorterDivHeader">
+        <h4>Sort Items</h4>
+        <ion-icon class="refreshSymbol" name="refresh"></ion-icon>
+        <hr />
+    </div>
+    <select class="form-control">
+        <option selected>All</option>
+        <option>Most Popular</option>
+        <option>Candles</option>
+        <option>Soaps</option>
+        <option>Hand Creams</option>
+    </select>
+    <button class="btn btn-primary">Search</button>
+</div>
+
+<!--Inventory-->
+<div class="div2">
+        <!--Card 1-->
+        <div class="card text-dark">
+            <div class="card-header">Sweet Tabacoo Candle - 8 oz <ion-icon class="infoCircleIcon" name="information-circle-outline"></ion-icon></div>
+            <div class="card-body">
+                <img src="~/Images/candles.jpeg" />
+                <p class="pSelectCount">Select Count - $13.50</p>
+                <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                <button class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+        <!--Card 2-->
+        <div class="card text-dark">
+            <div class="card-header">Fresh Mint Soap <ion-icon class="infoCircleIcon" name="information-circle-outline"></ion-icon></div>
+            <div class="card-body">
+                <img src="~/Images/handCraftedSoaps.jpg" />
+                <p class="pSelectCount">Select Count - $23.00</p>
+                <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                <button class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+        <!--Card 3-->
+        <div class="card text-dark">
+            <div class="card-header">Honey Hand Cream <ion-icon class="infoCircleIcon" name="information-circle-outline"></ion-icon></div>
+            <div class="card-body">
+                <img src="~/Images/handCream.jpeg" />
+                <p class="pSelectCount">Select Count - $11.75</p>
+                <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                <button class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+        <!--Card 4-->
+        <div class="card text-dark">
+            <div class="card-header">Homemade face soap <ion-icon class="infoCircleIcon" name="information-circle-outline"></ion-icon></div>
+            <div class="card-body">
+                <img src="~/Images/faceSoap.jpg" />
+                <p class="pSelectCount">Select Count - $22.00</p>
+                <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                <button class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+        <!--Card 5-->
+        <div class="card text-dark">
+            <div class="card-header">Honey Lip Balm <ion-icon class="infoCircleIcon" name="information-circle-outline"></ion-icon></div>
+            <div class="card-body">
+                <img src="~/Images/lipBalm.jpg" />
+                <p class="pSelectCount">Select Count - $47.25</p>
+                <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                <button class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+        <!--Card 6-->
+        <div class="card text-dark">
+            <div class="card-header">Face mask kit <ion-icon class="infoCircleIcon" name="information-circle-outline"></ion-icon></div>
+            <div class="card-body">
+                <img src="~/Images/faceMaskKit.jpg" />
+                <p class="pSelectCount">Select Count - $155.50</p>
+                <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                <button class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+<!--Shop Dimmer-->
+<div class="shopDimmer"></div>
+
+<!--Info Popup card-->
+<div class="div3">
+    <h3>Sweet Tabacoo Candle</h3>
+    <hr/>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur</p>
+    <button class="btn btn-dark btnInfoPopUpClose">Close</button>
+</div>
+
+<!--I-->
+
+<script>
+    $(document).ready(function () {
+        $(".headerMarketVideoLogo").get(0).play(); //#Play Header MP4 Pan
+    });
+
+    //Info button clicked
+    $(".infoCircleIcon").on('click', function () {
+        $(".div3").css("opacity", "1");
+        $(".shopDimmer").css("opacity", ".3");
+        $(".div3").css("visibility", "visible");
+        $(".shopDimmer").css("visibility", "visible");
+    });
+
+    //Info Popup Close button Clicked
+    $(".btnInfoPopUpClose").on('click', function () {
+        $(".div3").css("opacity", "0");
+        $(".shopDimmer").css("opacity", "0");
+        setTimeout(function () {
+            $(".div3").css("visibility", "hidden");
+            $(".shopDimmer").css("visibility", "hidden");
+        }, 500);
+    });
+</script>

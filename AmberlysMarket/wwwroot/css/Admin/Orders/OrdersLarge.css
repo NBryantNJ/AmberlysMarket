@@ -1,0 +1,205 @@
+﻿
+/*Positioning Wrapper to adjust body size and center items*/
+.divMainWrapperForPosition
+{
+    position:relative; width:1350px; left:50%; 
+    transform:translate(-50%); 
+    text-align:center;
+    margin-top:100px; 
+}
+
+/*Select Filter Section*/
+.divMainWrapperForPosition
+{
+    width:1350px; 
+}
+
+.h5HeaderText
+{
+    margin-bottom:40px;
+}
+
+.selectOrderFilter1, .inputOrderNumberFilter {
+    position: relative;
+    width: 370px !important;
+    height: 50px !important;
+    float: left !important;
+    display: inline-block !important;
+    margin-right: 20px !important;
+    margin-bottom: 10px !important;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+
+.btnOrderFilterSearch {
+    width: 200px !important;
+    height: 40px !important;
+    display: inline-block !important;
+    float: right;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 20%), 0 8px 16px rgb(0 0 0 / 20%)!important;
+}
+
+.ordersTableMain {
+    position: relative;
+    width: 1350px !important;
+    margin-bottom: 500px;
+    letter-spacing: 1px !important;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    background-color:white;
+}
+
+
+/*-----------------Advanced Details Section---------------------*/
+
+/*Globals*/
+
+.divAdvancedDetailsWrapper span {
+    display: block;
+}
+
+.pCustomerDetails {
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+.pCustomerDetailsPrimary {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+
+/*Main Wrapper*/
+.divAdvancedDetailsWrapper {
+    position: relative;
+    width: 1350px;
+    left: 50%;
+    top: 100px;
+    transform: translate(-50%);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    padding: 20px;
+    letter-spacing: 1px;
+    background-color: white;
+}
+
+/*Shipping Details*/
+.divAdvancedShippingDetailsHeader
+{
+    margin-bottom:50px; 
+}
+
+.divAdvancedShippingDetailsHeader .btn
+{
+    height:50px; 
+    width:200px;
+    margin-left:100px; 
+    margin-right:100px; 
+    margin-top:15px; 
+    margin-bottom:50px; 
+    font-size:16px!important;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 20%), 0 8px 16px rgb(0 0 0 / 20%);
+
+}
+
+.progress {
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%) !important;
+}
+
+/*Customer Details*/
+.divCustomerDetails {
+    margin-bottom: 50px;
+}
+
+.btnSendEmail {
+    position: absolute;
+    left: 90%;
+}
+
+
+/*Back Button*/
+.divBackButtonWrapper {
+    position: relative;
+    width: 1350px;
+    left: 50%;
+    top: 120px;
+    transform: translate(-50%);
+    margin-bottom:200px;
+}
+
+.backButton {
+    position: relative;
+    width: 200px;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 20%), 0 8px 16px rgb(0 0 0 / 20%);
+}
+
+/*Dimmer*/
+.divDimmer
+{
+    position:fixed; height:100%; width:100%; top:0px; left:0px; 
+    background-color:black; 
+    opacity:.4; 
+    visibility:hidden;
+}
+
+/*------------------Popups-----------------------*/
+
+/*Shipping popup*/
+.divOrderShippedPopUp
+{
+    position:fixed; top:300px; left:50%; height:320px; width:700px;
+    transform:translate(-50%); 
+    background-color:white; 
+    box-shadow:0px 0px 5px #777;
+    padding:25px; 
+    visibility:hidden;
+}
+
+.divOrderShippedPopUp input{
+    margin-top:20px; 
+}
+
+.divOrderShippedPopUp button
+{
+    width:250px; 
+    height:50px;
+    margin-top:50px; 
+    margin-left:30px; 
+    margin-right:30px; 
+    letter-spacing:1px!important;
+}
+
+.divOrderShippedPopUp img
+{
+    position:absolute; top:192px; left:418px; width:150px; 
+    visibility:hidden;
+}
+
+/*Order Complete Popup*/
+.divOrderCompletePopUp {
+    position: fixed;
+    top: 300px;
+    left: 50%;
+    height: 220px;
+    width: 700px;
+    transform: translate(-50%);
+    background-color: white;
+    box-shadow: 0px 0px 5px #777;
+    padding: 25px;
+    visibility: hidden;
+}
+
+.divOrderCompletePopUp button {
+    width:250px; 
+    height:50px;
+    margin-top:50px; 
+    margin-left:30px; 
+    margin-right:30px; 
+    letter-spacing:1px!important;
+}
+
+.divOrderCompletePopUp img {
+    position:absolute; top:125px; left:418px; width:150px; 
+    visibility:hidden;
+}

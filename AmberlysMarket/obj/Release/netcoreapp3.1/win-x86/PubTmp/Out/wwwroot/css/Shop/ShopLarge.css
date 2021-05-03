@@ -1,0 +1,191 @@
+﻿
+
+.headerMarketVideoLogo
+{
+    position:relative; width:1350px; left:50%; 
+    transform:translate(-50%); 
+    border-color:#aaaaaa !important;
+    border-bottom:solid;
+    border-bottom-width:1px;
+}
+
+/*Welcome Div*/
+.div1
+{
+    position:relative; left:50%; 
+    transform:translate(-50%); 
+    text-align:center;
+    margin-top:50px; 
+    letter-spacing:3px;
+}
+
+/*Sorter Card*/
+.sorterDiv {
+    position: relative;
+    left: 50%;
+    width: 1000px !important;
+    height:300px!important;
+    transform: translate(-50%);
+    margin-top: 50px;
+    box-shadow:0px 2px 8px #aaa;
+    padding:25px;
+}
+
+.sorterDiv img
+{
+    position:absolute; width:80px; left:90%; top:10px;
+    opacity:1;
+}
+
+.sorterDiv .form-control{
+    margin-top:50px!important;
+    font-size:16px;
+}
+
+.sorterDiv button{
+    margin-top:50px; 
+    width:150px;
+}
+
+.sorterDivHeader h4{
+    color: #808080;
+    display:inline-block;
+    margin-top:10px; 
+    letter-spacing:2px;
+    margin-left:20px;
+}
+
+.refreshSymbol {
+    position: relative;
+    left: 80%;
+    font-size: 30px;
+    color: #808080;
+}
+
+.refreshSymbol:hover
+{
+    opacity:.6;
+    cursor:pointer;
+}
+
+.sorterDivHeader p {
+    position: absolute;
+    left: 90%;
+}
+
+.sorterDivHeader hr{
+    border-style:solid; 
+    border-color:#ddd;
+}
+/*Inventory Div*/
+.div2 {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top:100px;
+}
+
+
+.div2 .form-control {
+    position: relative;
+    left: 200px;
+    width: 200px !important;
+}
+
+.div2 .card {
+    width: 450px!important;
+    height:485px!important; 
+    letter-spacing: 2px;
+    display: inline-block !important;
+    margin-left:50px; 
+    margin-right:50px; 
+    margin-top:60px!important;
+    text-align:left!important;
+    color:#000!important;
+    border-color:#ccc!important;
+}
+
+.div2 .card .card-header{
+    background-color:white!important;
+    height:50px;
+}
+
+.infoCircleIcon {
+    position: absolute;
+    left:400px;
+    font-size:20px;
+}
+
+.infoCircleIcon:hover {
+    opacity:.6; 
+    cursor:pointer; 
+}
+
+.div2 .card img {
+    position: relative;
+    width: 100%;
+    height: 260px;
+}
+
+.pSelectCount
+{
+    margin-top:10px; 
+    margin-bottom:5px;
+}
+
+.div2 .card button {
+    position:relative; 
+    left:30%;
+    margin-top: 25px;
+    width: 70%;
+    border-style:solid!important;
+    border-color:#ccc!important;
+    border-width:1px!important;
+}
+
+
+/*Info Popup card*/
+.div3 {
+    position: fixed;
+    width: 550px;
+    left: 50%;
+    top: 50%;
+    background-color: white;
+    border-style: solid;
+    border-color: #999;
+    border-width: 1px;
+    transform: translate(-50%,-50%);
+    padding: 30px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.div3 hr
+{
+    border-color:#aaa!important;   
+}
+
+.div3 p{
+    margin-top:30px; 
+}
+
+.div3 button
+{
+    margin-top:30px; 
+    width:150px; 
+}
+
+/*Shop Dimmer*/
+.shopDimmer {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: .3;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .5s;
+}

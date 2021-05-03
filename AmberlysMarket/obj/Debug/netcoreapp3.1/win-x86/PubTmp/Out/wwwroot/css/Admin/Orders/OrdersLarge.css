@@ -1,0 +1,45 @@
+﻿
+/*Positioning Wrapper to adjust body size and center items*/
+.divMainWrapperForPosition
+{
+    position:relative; width:1350px; left:50%; 
+    transform:translate(-50%); 
+    text-align:center;
+    margin-top:100px; 
+}
+
+/*Select Filter Section*/
+.divMainWrapperForPosition
+{
+    width:1350px; 
+}
+
+.h5HeaderText
+{
+    margin-bottom:40px;
+}
+
+.selectOrderFilter1, .inputOrderNumberFilter {
+    position: relative;
+    width: 370px !important;
+    height: 50px !important;
+    float: left !important;
+    display: inline-block !important;
+    margin-right: 20px !important;
+    margin-bottom: 10px !important;
+}
+
+.btnOrderFilterSearch {
+    width: 200px !important;
+    height: 40px !important;
+    display: inline-block !important;
+    float:right;
+    margin-top:10px;
+}
+
+.ordersTableMain {
+    position: relative;
+    width: 1350px !important;
+    margin-bottom: 500px;
+    letter-spacing:1px!important;
+}

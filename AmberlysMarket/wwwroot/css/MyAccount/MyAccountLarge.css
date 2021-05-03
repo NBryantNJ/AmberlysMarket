@@ -1,0 +1,77 @@
+﻿/*Main Options Wrapper*/
+.mainOptionsWrapper {
+    position: relative;
+    width: 1350px;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top:50px; 
+}
+
+.mainOptionsWrapper button
+{
+    height:50px; 
+    width:200px; 
+    font-size:16px; 
+    margin-right:50px; 
+}
+
+/*Main Wrapper*/
+.mainAccountWrapper {
+    position: relative;
+    width: 1350px;
+    height: 700px;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 20px;
+    margin-bottom: 100px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    background-color: white;
+    padding: 30px;
+    font-size:18px;
+    font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+.mainAccountWrapper p 
+{
+    margin-top:10px; 
+    margin-bottom:50px; 
+}
+
+strong
+{
+    margin-right:5px; 
+}
+
+.editButton
+{
+    margin-left:10px; 
+    letter-spacing:2px;
+    border-style:none!important;
+}
+
+/*Left Splitter*/
+.divLeftSplitter {
+    position: absolute;
+    left: 0px;
+    width: 50%;
+    height: 90%;
+    top: 10%;
+    padding: 30px;
+}
+
+/*Right Splitter*/
+.divRightSplitter
+{
+    position:absolute; left:50%; width:50%; height:90%; top:10%; 
+    padding:30px; 
+}
+
+.btnCustomerViewPastOrders {
+    position: relative;
+    width: 280px;
+    height: 70px;
+    font-size: 20px;
+    margin-top: 140px;
+    margin-left: 300px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 30%), 0 8px 16px rgb(0 0 0 / 30%);
+}
